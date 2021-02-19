@@ -29,6 +29,7 @@ jobs:
           ./gradlew --refresh-dependencies clean setupDecompWorkspace
       - name: Publish to Sponge Maven & GitHub Packages
         run: ./gradlew -s build :uploadArchives
+        continue-on-error: true        
         env:
           CI_SYSTEM: Github Actions
           GITHUB_USERNAME: ${{ github.actor }}
